@@ -32,7 +32,7 @@ TEST(AlreadyPassed, Yen) {
 	ASSERT_FALSE(try_convert_to_sjis_strictly(L'\u00A5').has_value()) << "U+00A5 must not be able to be converted to Shift_JIS with WC_NO_BEST_FIT_CHARS.";
 }
 TEST(AlreadyPassed, FullWidthTilde) {
-	const auto result = try_convert_to_sjis_strictly(L'\uFF5E') 
+	const auto result = try_convert_to_sjis_strictly(L'\uFF5E');
 	ASSERT_TRUE(result.has_value()) << "U+FF5E must be able to be converted to Shift_JIS with WC_NO_BEST_FIT_CHARS.";
 	ASSERT_STREQ(result.value().c_str(), "\x81\x60") << "The converted result for U+FF5E is different.";
 }
