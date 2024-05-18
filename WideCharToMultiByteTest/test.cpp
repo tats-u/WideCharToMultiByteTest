@@ -1,6 +1,6 @@
 #include "pch.h"
 
-std::optional<std::string> try_convert_to_sjis_loosely(const wchar_t input) {
+static std::optional<std::string> try_convert_to_sjis_loosely(const wchar_t input) {
 	BOOL failed = false;
 	int len = WideCharToMultiByte(932, 0, &input, 1, nullptr, 0, nullptr, &failed);
 	assert(GetLastError() != ERROR_INVALID_PARAMETER);
@@ -11,7 +11,7 @@ std::optional<std::string> try_convert_to_sjis_loosely(const wchar_t input) {
 	WideCharToMultiByte(932, 0, &input, 1, output.data(), len, nullptr, nullptr);
 	return output;
 }
-std::optional<std::string> try_convert_to_sjis_strictly(const wchar_t input) {
+static std::optional<std::string> try_convert_to_sjis_strictly(const wchar_t input) {
 	BOOL failed = false;
 	int len = WideCharToMultiByte(932, WC_NO_BEST_FIT_CHARS, &input, 1, nullptr, 0, nullptr, &failed);
 	assert(GetLastError() != ERROR_INVALID_PARAMETER);
