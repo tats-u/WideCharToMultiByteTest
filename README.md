@@ -9,10 +9,11 @@ For example, WAVE DASH `〜` (U+301C) is widely used among other OSes but is not
 Due to this problem, we are forced to use the abnormal FULLWIDTH TILDE `～` (U+FF5E) instead of the WAVE DASH via IMEs (Input Method Editors) in Windows.
 It means Windows lacks the interoperability with other OSes.
 
-https://ja.wikipedia.org/wiki/%E6%B3%A2%E3%83%80%E3%83%83%E3%82%B7%E3%83%A5#Windows%E3%81%AB%E3%81%8A%E3%81%84%E3%81%A6%E8%B5%B7%E3%81%8D%E3%82%8B%E5%95%8F%E9%A1%8C (Japanese)
-https://ja.wikipedia.org/wiki/Google_%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%85%A5%E5%8A%9B#%E4%BB%95%E6%A7%98 (Japanese)
-https://www.tohoho-web.com/ex/dash-tilde.html (Japanese)
-https://github.com/google/mozc/blob/master/src/base/text_normalizer.cc#L57-L58
+- https://ja.wikipedia.org/wiki/%E6%B3%A2%E3%83%80%E3%83%83%E3%82%B7%E3%83%A5#Windows%E3%81%AB%E3%81%8A%E3%81%84%E3%81%A6%E8%B5%B7%E3%81%8D%E3%82%8B%E5%95%8F%E9%A1%8C (Japanese)
+- https://ja.wikipedia.org/wiki/Google_%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%85%A5%E5%8A%9B#%E4%BB%95%E6%A7%98 (Japanese)
+- https://www.tohoho-web.com/ex/dash-tilde.html (Japanese)
+- https://x0213.org/wiki/wiki.cgi?page=%C7%C8%A5%C0%A5%C3%A5%B7%A5%E5%CC%E4%C2%EA (Japanese)
+- https://github.com/google/mozc/blob/master/src/base/text_normalizer.cc#L57-L58
 
 This repository contains the test code to show Windows API function `WideCharToMultiByte`, used to convert Unicode strings to Shift_JIS, behaves incorrectly.
 
@@ -84,8 +85,3 @@ The above characters do not have to be converted to Shift_JIS if `WC_NO_BEST_FIT
 ## Used library
 
 Visual C++ GoogleTest
-
-## References
-
-- https://x0213.org/wiki/wiki.cgi?page=%C7%C8%A5%C0%A5%C3%A5%B7%A5%E5%CC%E4%C2%EA
-- https://www.tohoho-web.com/ex/dash-tilde.html
