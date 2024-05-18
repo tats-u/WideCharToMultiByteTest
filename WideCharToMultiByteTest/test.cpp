@@ -90,7 +90,7 @@ namespace MustBeFixed {
 		ASSERT_TRUE(result.has_value()) << "U+301C must be able to be converted to Shift_JIS even without WC_NO_BEST_FIT_CHARS";
 		ASSERT_STREQ(result.value().c_str(), "\x81\x60") << "The converted result for U+301C is different";
 	}
-	static TEST(LooseConversion, OverLine_20E3) {
+	static TEST(LooseConversion, OverLine_203E) {
 		const auto result = try_convert_to_sjis_loosely(L'\u203E');
 		ASSERT_TRUE(result.has_value()) << "U+203E must be able to be converted to Shift_JIS even without WC_NO_BEST_FIT_CHARS";
 		ASSERT_STREQ(result.value().c_str(), "~") << "The converted result for U+203E is different";
