@@ -87,27 +87,27 @@ TEST(AlreadyPassed, HalfWidthNotSign) {
 
 ////////////////////////////////////////////////////////////////
 
-TEST(NotPassed, WaveDash) {
+TEST(MustBeFixed, WaveDash) {
 	const auto result = try_convert_to_sjis_loosely(L'\u301C');
 	ASSERT_TRUE(result.has_value()) << "U+301C must be able to be converted to Shift_JIS even without WC_NO_BEST_FIT_CHARS";
 	ASSERT_STREQ(result.value().c_str(), "\x81\x60") << "The converted result for U+301C is different";
 }
-TEST(NotPassed, OverLine) {
+TEST(MustBeFixed, OverLine) {
 	const auto result = try_convert_to_sjis_loosely(L'\u203E');
 	ASSERT_TRUE(result.has_value()) << "U+203E must be able to be converted to Shift_JIS even without WC_NO_BEST_FIT_CHARS";
 	ASSERT_STREQ(result.value().c_str(), "~") << "The converted result for U+203E is different";
 }
-TEST(NotPassed, DoubleVerticalLine) {
+TEST(MustBeFixed, DoubleVerticalLine) {
 	const auto result = try_convert_to_sjis_loosely(L'\u2016');
 	ASSERT_TRUE(result.has_value()) << "U+2016 must be able to be converted to Shift_JIS even without WC_NO_BEST_FIT_CHARS";
 	ASSERT_STREQ(result.value().c_str(), "\x81\x61") << "The converted result for U+2016 is different";
 }
-TEST(NotPassed, Minus) {
+TEST(MustBeFixed, Minus) {
 	const auto result = try_convert_to_sjis_loosely(L'\u2212');
 	ASSERT_TRUE(result.has_value()) << "U+2212 must be able to be converted to Shift_JIS even without WC_NO_BEST_FIT_CHARS";
 	ASSERT_STREQ(result.value().c_str(), "\x81\x7c") << "The converted result for U+2212 is different";
 }
-TEST(NotPassed, EmDash) {
+TEST(MustBeFixed, EmDash) {
 	const auto result = try_convert_to_sjis_loosely(L'\u2014');
 	ASSERT_TRUE(result.has_value()) << "U+2014 must be able to be converted to Shift_JIS even without WC_NO_BEST_FIT_CHARS";
 	ASSERT_STREQ(result.value().c_str(), "\x81\x5c") << "The converted result for U+2014 is different";
