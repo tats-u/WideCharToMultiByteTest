@@ -56,7 +56,7 @@ TEST(AlreadyPassed, FullWidthCent) {
 	ASSERT_TRUE(result.has_value())	<< "U+FFE0 must be able to be converted to Shift_JIS with WC_NO_BEST_FIT_CHARS.";
 	ASSERT_STREQ(result.value().c_str(), "\x81\x91") << "The converted result for U+FFE0 is different.";
 }
-TEST(AlreadyPased, HalfWidthCent) {
+TEST(AlreadyPassed, HalfWidthCent) {
 	const auto result = try_convert_to_sjis_loosely(L'\u00A2');
 	ASSERT_TRUE(result.has_value()) << "U+00A2 must be able to be converted to Shift_JIS even without WC_NO_BEST_FIT_CHARS.";
 	ASSERT_STREQ(result.value().c_str(), "\x81\x91") << "The converted result for U+00A2 is different.";
