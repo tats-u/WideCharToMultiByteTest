@@ -38,7 +38,7 @@ Therefore, U+203E must be converted to Shift_JIS `0x7E` without the `WC_NO_BEST_
 
 1. Open the solution file
 2. Build
-3. Run unit tests (some will fail)
+3. Run unit tests (only those in the namespace “MustBeFixed” will intentionally fail)
 
 For developers of Windows itself: if you fix the problem, you can run the unit tests again and **all will pass.**
 
@@ -48,15 +48,15 @@ Loose conversion (without the `WC_NO_BEST_FIT_CHARS` option; the above character
 
 ```cpp
 static std::optional<std::string> try_convert_to_sjis_loosely(const wchar_t input) {
-	BOOL failed = false;
-	int len = WideCharToMultiByte(932, 0, &input, 1, nullptr, 0, nullptr, &failed);
-	assert(GetLastError() != ERROR_INVALID_PARAMETER);
-	if (failed) {
-		return std::nullopt;
-	}
-	std::string output(len, 0);
-	WideCharToMultiByte(932, 0, &input, 1, output.data(), len, nullptr, nullptr);
-	return output;
+    BOOL failed = false;
+    int len = WideCharToMultiByte(932, 0, &input, 1, nullptr, 0, nullptr, &failed);
+    assert(GetLastError() != ERROR_INVALID_PARAMETER);
+    if (failed) {
+        return std::nullopt;
+    }
+    std::string output(len, 0);
+    WideCharToMultiByte(932, 0, &input, 1, output.data(), len, nullptr, nullptr);
+    return output;
 }
 ```
 
@@ -67,15 +67,15 @@ FYI, Strict conversion (with `WC_NO_BEST_FIT_CHARS` option):
 
 ```cpp
 static std::optional<std::string> try_convert_to_sjis_strictly(const wchar_t input) {
-	BOOL failed = false;
-	int len = WideCharToMultiByte(932, WC_NO_BEST_FIT_CHARS, &input, 1, nullptr, 0, nullptr, &failed);
-	assert(GetLastError() != ERROR_INVALID_PARAMETER);
-	if (failed) {
-		return std::nullopt;
-	}
-	std::string output(len, 0);
-	WideCharToMultiByte(932, WC_NO_BEST_FIT_CHARS, &input, 1, output.data(), len, nullptr, nullptr);
-	return output;
+    BOOL failed = false;
+    int len = WideCharToMultiByte(932, WC_NO_BEST_FIT_CHARS, &input, 1, nullptr, 0, nullptr, &failed);
+    assert(GetLastError() != ERROR_INVALID_PARAMETER);
+    if (failed) {
+        return std::nullopt;
+    }
+    std::string output(len, 0);
+    WideCharToMultiByte(932, WC_NO_BEST_FIT_CHARS, &input, 1, output.data(), len, nullptr, nullptr);
+    return output;
 }
 ```
 
