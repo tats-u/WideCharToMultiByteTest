@@ -23,12 +23,12 @@ https://developercommunity.visualstudio.com/t/WideCharToMultiByte932-0--Unic/106
 
 ## What characters must be converted properly?
 
-| Shift_JIS   | Other OSes (correct) | Windows (incorrect) |
-| ----------- | -------------------- | ------------------- |
-| `0x81 0x60` | U+FF5E               | U+301C              |
-| `0x81 0x61` | U+2016               | U+2225              |
-| `0x81 0x7C` | U+2212               | U+FF0D              |
-| `0x81 0x5C` | U+2014               | U+2015              |
+| Shift_JIS   | Other OSes (correct)          | Windows (incorrect)              |
+| ----------- | ----------------------------- | -------------------------------- |
+| `0x81 0x60` | U+301C WAVE DASH 〜           | U+FF5E FULLWIDTH TILDE ～        |
+| `0x81 0x61` | U+2016 DOUBLE VERTICAL LINE ‖ | U+2225 PARALLEL TO ∥             |
+| `0x81 0x7C` | U+2212 MINUS SIGN −           | U+FF0D FULLWIDTH HYPHEN-MINUS － |
+| `0x81 0x5C` | U+2014 EM DASH —              | U+2015 HORIZONTAL BAR ―         |
 
 Windows must convert the characters in the middle column to Shift_JIS without the `WC_NO_BEST_FIT_CHARS` option.
 
