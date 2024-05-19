@@ -14,6 +14,7 @@ It means Windows lacks the interoperability with other OSes.
 - https://www.tohoho-web.com/ex/dash-tilde.html (Japanese)
 - https://x0213.org/wiki/wiki.cgi?page=%C7%C8%A5%C0%A5%C3%A5%B7%A5%E5%CC%E4%C2%EA (Japanese)
 - https://github.com/google/mozc/blob/master/src/base/text_normalizer.cc#L57-L58
+- https://ja.wikipedia.org/wiki/%E5%B9%B3%E8%A1%8C%E8%A8%98%E5%8F%B7#%E6%96%87%E5%AD%97%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E5%95%8F%E9%A1%8C (Japanese)
 
 This repository contains the test code to show Windows API function `WideCharToMultiByte`, used to convert Unicode strings to Shift_JIS, behaves incorrectly.
 
