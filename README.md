@@ -19,7 +19,8 @@ This repository contains the test code to show Windows API function `WideCharToM
 
 ## Tracking issues
 
-https://developercommunity.visualstudio.com/t/WideCharToMultiByte932-0--Unic/10638056
+- https://aka.ms/AAqhm6u
+- https://developercommunity.visualstudio.com/t/WideCharToMultiByte932-0--Unic/10638056
 
 ## What characters must be converted properly?
 
